@@ -11,5 +11,17 @@ notes.get('/', (req, res) => {
 notes.post('/', (req, res) => {
   // TODO: Logic for appending data to the db/notes.json file
 });
+// chatGPT helped with this block of code
+readAndAppend(newNote, './db/notes.json', (err) => {
+  if (err) {
+    console.error(err);
+    res.status(500).send('Error in adding note');
+  } else {
+    res.json('Note added successfully' );
+  }
+});
+
+
+
 
 module.exports = notes;
